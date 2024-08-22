@@ -3,8 +3,14 @@
 #include "../include/bitop.h"
 
 int main(){
-  void * buff = encode(0b111111111111111111111111111111111111111111111111111111111111111);
-  memprint(buff, 10); 
+  void * buff = encode(10);
+  memprint(buff, 5); 
   printf("EVERYTHING WORKING FINE\n");
+  /*
+  unsigned long k = 888;
+  memprint(&k , 8);
+  rv_endiannes(&k, 8);
+  memprint(&k, 8);
+  */
   return 0;
 }

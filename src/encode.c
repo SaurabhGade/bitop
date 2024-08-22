@@ -15,13 +15,10 @@ void* encode(unsigned long num){
     t = log2(t)+1;
     arr[i] = t;
     i++;
-    printf("%ld ",t);
   }
   byte_count = bit_count/8+1;
   buff = malloc(byte_count);
   i-=1; 
-  //2 3 7 65
-  //65 7 3 2
   while(i > 0){
     size = arr[i];
     val = arr[i-1];
@@ -38,6 +35,16 @@ void* encode(unsigned long num){
     counter+=1;
     i-=1;
   }
+  i = 0;
+  t = num;
+  rv_endiannes(&t, sizeof(t));
+  lft_shift(&t, sizeof(t), (sizeof(t)*8)-arr[0]);
 
+  for(; i < arr[0] ; i++){
+    (is_bit_set(&t, sizeof(t), FROM_MSB(sizeof(t), i)))?
+      set_bit(buff, byte_count, FROM_MSB(byte_count, counter)): 
+      clr_bit(buff, byte_count, FROM_MSB(byte_count, counter));
+    counter+=1;
+  }
   return buff;
 }
