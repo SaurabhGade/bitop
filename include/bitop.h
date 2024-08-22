@@ -21,4 +21,5 @@ void set_bit(void *bit_vec, unsigned int nmemb, unsigned int i);
 void clr_bit(void *bit_vec, unsigned int nmemb, unsigned int i);
 bool is_bit_set(void *bit_vec, unsigned int nmemb, unsigned int i);
 void* encode(unsigned long val);
+unsigned long decode(void *bit_vec);
 #endif //__BITOP_H_
