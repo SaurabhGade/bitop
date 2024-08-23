@@ -16,6 +16,7 @@ test: $(OBJ_FILES)
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c $(INCLUDE_DIR)/bitop.h
 	$(CC) $(CFLAGS) -c $< -o $@ -lm
 
+.PHONY: run
 run:
 	$(BIN_DIR)/test
 
@@ -23,4 +24,5 @@ run:
 .PHONY: clean			#To tell file make clean is not a file but a command that should always run regrdless of wheter a file with that naem exist.
 	
 clean:
-	rm -f $(BUILD_DIR)/*.o 
+	rm -fv $(BUILD_DIR)/*.o
+	rm -rv $(BIN_DIR)/test
