@@ -7,6 +7,8 @@
 #include "/usr/include/string.h"
 #include "/usr/include/math.h"
 
+
+//map (0 - memb*8-1) -> (nmemb*8-1 - 0);
 #define FROM_MSB(byte_count, counter) (byte_count)*(8)-(counter+1)
 
 typedef enum {
@@ -20,6 +22,7 @@ void rht_shift(void* buff, int nmemb, int shift_count);
 void set_bit(void *bit_vec, unsigned int nmemb, unsigned int i);
 void clr_bit(void *bit_vec, unsigned int nmemb, unsigned int i);
 bool is_bit_set(void *bit_vec, unsigned int nmemb, unsigned int i);
+
 void* encode(unsigned long val);
 unsigned long decode(void *bit_vec);
 #endif //__BITOP_H_

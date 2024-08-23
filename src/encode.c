@@ -1,5 +1,5 @@
 #include "../include/bitop.h"
-#define FROM_MSB(byte_count, counter) (byte_count)*(8)-(counter+1) 
+
 void* encode(unsigned long num){
   unsigned int bit_count = 0;
   unsigned int byte_count = 0;
